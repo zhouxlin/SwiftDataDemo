@@ -8,8 +8,35 @@
 import SwiftUI
 
 struct NewBookView: View {
+    @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) var dismiss
+    @State private var title = ""
+    @State private var author = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            Form {
+                TextField("Title", text: $title)
+                TextField("Author", text: $author)
+                Button("Create") {
+                    let newBook = Book(title: title, author: author)
+                    context.insert(newBook)
+                    dismiss()
+                }
+                .frame(maxWidth: .infinity,alignment: .trailing)
+                .buttonStyle(.borderedProminent)
+                .padding(.vertical)
+                .disabled(title.isEmpty || author.isEmpty)
+                .navigationTitle("New a book")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar{
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button("Cancel") {
+                            dismiss()
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
