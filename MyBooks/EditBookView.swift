@@ -67,6 +67,37 @@ struct EditBookView: View {
                 }
             }
             Divider()
+            LabeledContent {
+                RatingsView(maxRating: 5, currentRating: $rating, width: 30)
+            } label: {
+                Text("Rating")
+            }
+            LabeledContent {
+                TextField("", text: $title)
+            } label: {
+                Text("Title").foregroundStyle(.secondary)
+            }
+            LabeledContent {
+                TextField("", text: $author)
+            } label: {
+                Text("Author").foregroundStyle(.secondary)
+            }
+            Divider()
+            Text("Summary").foregroundStyle(.secondary)
+            TextEditor(text: $summary)
+                .padding(5)
+                .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color(uiColor: .tertiarySystemFill), lineWidth: 2))
+            
+        }
+        .padding()
+        .textFieldStyle(.roundedBorder)
+        .navigationTitle(title)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            Button ("Update"){
+                
+                dismiss()
+            }.buttonStyle(.borderedProminent)
         }
     }
 }
