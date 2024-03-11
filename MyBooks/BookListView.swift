@@ -8,12 +8,28 @@
 import SwiftUI
 import SwiftData
 
+
+enum SortOrder: String, Identifiable, CaseIterable {
+    case status, title, author
+    
+    var id: Self {
+        self
+    }
+}
+
 struct BookListView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: (\Book.title)) private var books: [Book]
     @State private var createBook = false
+    @State private var sortOrder = SortOrder.status
     var body: some View {
         NavigationStack {
+            Picker("", selection: $sortOrder) {
+                ForEach (SortOrder.allCases) { sortOrder in
+                    Text("Sort by \(sortOrder.rawValue)").tag(sortOrder)
+                }
+            }
+            .buttonStyle(.bordered)
             Group {
                 if (books.isEmpty) {
                     ContentUnavailableView("Enter your first book", systemImage:"book.fill")
