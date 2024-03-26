@@ -18,6 +18,8 @@
 		F8CBBA982B960CFC003205D7 /* EditBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBBA972B960CFC003205D7 /* EditBookView.swift */; };
 		F8CBBA9A2B962464003205D7 /* RatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBBA992B962464003205D7 /* RatingsView.swift */; };
 		F8F530C62B9F3E53002E6CF0 /* BookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F530C52B9F3E53002E6CF0 /* BookList.swift */; };
+		F8F530C82BA5EAEB002E6CF0 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F530C72BA5EAEB002E6CF0 /* Quote.swift */; };
+		F8F530CA2BA5ED17002E6CF0 /* QuotesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F530C92BA5ED17002E6CF0 /* QuotesListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		F8CBBA972B960CFC003205D7 /* EditBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBookView.swift; sourceTree = "<group>"; };
 		F8CBBA992B962464003205D7 /* RatingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsView.swift; sourceTree = "<group>"; };
 		F8F530C52B9F3E53002E6CF0 /* BookList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookList.swift; sourceTree = "<group>"; };
+		F8F530C72BA5EAEB002E6CF0 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		F8F530C92BA5ED17002E6CF0 /* QuotesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +71,11 @@
 			children = (
 				F8CBBA852B94BCCA003205D7 /* MyBooksApp.swift */,
 				F8CBBA932B94BD0A003205D7 /* Book.swift */,
+				F8F530C72BA5EAEB002E6CF0 /* Quote.swift */,
 				F8CBBA872B94BCCA003205D7 /* BookListView.swift */,
 				F8CBBA952B94D0DF003205D7 /* NewBookView.swift */,
 				F8F530C52B9F3E53002E6CF0 /* BookList.swift */,
+				F8F530C92BA5ED17002E6CF0 /* QuotesListView.swift */,
 				F8CBBA992B962464003205D7 /* RatingsView.swift */,
 				F8CBBA972B960CFC003205D7 /* EditBookView.swift */,
 				F8CBBA892B94BCCB003205D7 /* Assets.xcassets */,
@@ -164,7 +170,9 @@
 				F8F530C62B9F3E53002E6CF0 /* BookList.swift in Sources */,
 				F8CBBA982B960CFC003205D7 /* EditBookView.swift in Sources */,
 				F8CBBA882B94BCCA003205D7 /* BookListView.swift in Sources */,
+				F8F530C82BA5EAEB002E6CF0 /* Quote.swift in Sources */,
 				F8CBBA862B94BCCA003205D7 /* MyBooksApp.swift in Sources */,
+				F8F530CA2BA5ED17002E6CF0 /* QuotesListView.swift in Sources */,
 				F80A3F8A2B9DFAA300D2869B /* PreviewContainer.swift in Sources */,
 				F8CBBA942B94BD0A003205D7 /* Book.swift in Sources */,
 			);
