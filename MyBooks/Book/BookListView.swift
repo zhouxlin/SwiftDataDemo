@@ -53,5 +53,7 @@ struct BookListView: View {
 #Preview {
     let preview = Preview(Book.self)
     preview.addExamples(Book.sampleBooks)
+    preview.addExamples(Genre.sampleGenres)
+    
     return BookListView().modelContainer(preview.container)
 }
