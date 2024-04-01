@@ -53,6 +53,13 @@ struct BookList: View {
                                             }
                                         }
                                     }
+                                    if let genres = book.genres {
+                                        ViewThatFits {
+                                            ScrollView(.horizontal, showsIndicators: false) {
+                                                GenresStackvView(genres: genres)
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -73,6 +80,7 @@ struct BookList: View {
 #Preview {
     let preview = Preview(Book.self)
     preview.addExamples(Book.sampleBooks)
+    preview.addExamples(Genre.sampleGenres)
     return NavigationStack {
         BookList(sortOrder: .author, filterString: "")
     }

@@ -53,14 +53,24 @@ struct GenresView: View {
                                 }
                                 Text(genre.name)
                             }
-                        }
+                        }.onDelete(perform: { indexSet in
+                            indexSet.forEach { index in
+                                if let bookGenres = book.genres,
+                                   bookGenres.contains(genres[index]),
+                                   let bookGenreIndex = bookGenres.firstIndex(where: {$0.id == genres[index].id}) {
+                                    book.genres?.remove(at: bookGenreIndex)
+                                }
+                                context.delete(genres[index])
+                            }
+                        })
                         LabeledContent {
                             Button {
                                 newGenre.toggle()
                             } label: {
-                                Image(systemName: "plus.cicle.fill")
+                                Image(systemName: "plus.circle.fill")
                                     .imageScale(.large)
                             }
+                            .buttonStyle(.borderedProminent)
                         } label: {
                             Text("Create a new genre").font(.caption).foregroundStyle(.secondary)
                         }
@@ -71,6 +81,14 @@ struct GenresView: View {
             .navigationTitle(book.title)
             .sheet(isPresented: $newGenre) {
                 NewGenreView()
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Back") {
+                        dismiss()
+                    }
+                }
+                
             }
         }
     }
@@ -93,9 +111,9 @@ struct GenresView: View {
 #Preview {
     let preview = Preview(Book.self)
     let books = Book.sampleBooks
-//    let genres = Genre.sampleGenres
+    let genres = Genre.sampleGenres
     preview.addExamples(books)
-//    preview.addExamples(Genre.sampleGenres)
-//    books[1].genres?.append(genres[0] )
+    preview.addExamples(Genre.sampleGenres)
+    books[1].genres?.append(genres[0] )
     return GenresView(book: books[1]).modelContainer(preview.container)
 }
