@@ -16,6 +16,7 @@
 		F80A3F882B9DF7F100D2869B /* BookSamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A3F872B9DF7F100D2869B /* BookSamples.swift */; };
 		F80A3F8A2B9DFAA300D2869B /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A3F892B9DFAA300D2869B /* PreviewContainer.swift */; };
 		F81099052BBB150B00FC2CEA /* GenresStackvView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81099042BBB150B00FC2CEA /* GenresStackvView.swift */; };
+		F87B7B7E2BCC2B4B00DF656C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F87B7B7D2BCC2B4B00DF656C /* Localizable.xcstrings */; };
 		F8CBBA862B94BCCA003205D7 /* MyBooksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBBA852B94BCCA003205D7 /* MyBooksApp.swift */; };
 		F8CBBA882B94BCCA003205D7 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBBA872B94BCCA003205D7 /* BookListView.swift */; };
 		F8CBBA8A2B94BCCB003205D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8CBBA892B94BCCB003205D7 /* Assets.xcassets */; };
@@ -39,6 +40,8 @@
 		F80A3F872B9DF7F100D2869B /* BookSamples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSamples.swift; sourceTree = "<group>"; };
 		F80A3F892B9DFAA300D2869B /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 		F81099042BBB150B00FC2CEA /* GenresStackvView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresStackvView.swift; sourceTree = "<group>"; };
+		F87B7B7D2BCC2B4B00DF656C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		F87B7B7F2BCC2E2900DF656C /* KeyWorks.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = KeyWorks.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F8CBBA822B94BCCA003205D7 /* MyBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CBBA852B94BCCA003205D7 /* MyBooksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksApp.swift; sourceTree = "<group>"; };
 		F8CBBA872B94BCCA003205D7 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 		F8CBBA792B94BCCA003205D7 = {
 			isa = PBXGroup;
 			children = (
+				F87B7B7D2BCC2B4B00DF656C /* Localizable.xcstrings */,
 				F8CBBA842B94BCCA003205D7 /* MyBooks */,
 				F8CBBA832B94BCCA003205D7 /* Products */,
 			);
@@ -148,6 +152,7 @@
 				F8046C102BB5CBF800A15CF0 /* Extensions */,
 				F8CBBA892B94BCCB003205D7 /* Assets.xcassets */,
 				F8CBBA8B2B94BCCB003205D7 /* Preview Content */,
+				F87B7B7F2BCC2E2900DF656C /* KeyWorks.playground */,
 			);
 			path = MyBooks;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = F8CBBA792B94BCCA003205D7;
 			productRefGroup = F8CBBA832B94BCCA003205D7 /* Products */;
@@ -223,6 +229,7 @@
 			files = (
 				F8CBBA8D2B94BCCB003205D7 /* Preview Assets.xcassets in Resources */,
 				F8CBBA8A2B94BCCB003205D7 /* Assets.xcassets in Resources */,
+				F87B7B7E2BCC2B4B00DF656C /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

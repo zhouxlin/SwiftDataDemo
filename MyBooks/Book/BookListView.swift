@@ -50,9 +50,16 @@ struct BookListView: View {
     }
 }
 
-#Preview {
+#Preview("English") {
     let preview = Preview(Book.self)
     preview.addExamples(Book.sampleBooks)
     preview.addExamples(Genre.sampleGenres)
     return BookListView().modelContainer(preview.container)
+}
+#Preview("Chiness") {
+    let preview = Preview(Book.self)
+    preview.addExamples(Book.sampleBooks)
+    preview.addExamples(Genre.sampleGenres)
+    return BookListView().modelContainer(preview.container)
+        .environment(\.locale, Locale(identifier: "zh-Hans"))
 }
