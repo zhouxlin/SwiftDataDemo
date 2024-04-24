@@ -17,6 +17,7 @@
 		F80A3F8A2B9DFAA300D2869B /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A3F892B9DFAA300D2869B /* PreviewContainer.swift */; };
 		F81099052BBB150B00FC2CEA /* GenresStackvView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81099042BBB150B00FC2CEA /* GenresStackvView.swift */; };
 		F87B7B7E2BCC2B4B00DF656C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F87B7B7D2BCC2B4B00DF656C /* Localizable.xcstrings */; };
+		F87B7B812BCD87B600DF656C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F87B7B802BCD87B600DF656C /* Launch Screen.storyboard */; };
 		F8CBBA862B94BCCA003205D7 /* MyBooksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBBA852B94BCCA003205D7 /* MyBooksApp.swift */; };
 		F8CBBA882B94BCCA003205D7 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CBBA872B94BCCA003205D7 /* BookListView.swift */; };
 		F8CBBA8A2B94BCCB003205D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8CBBA892B94BCCB003205D7 /* Assets.xcassets */; };
@@ -42,6 +43,9 @@
 		F81099042BBB150B00FC2CEA /* GenresStackvView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresStackvView.swift; sourceTree = "<group>"; };
 		F87B7B7D2BCC2B4B00DF656C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		F87B7B7F2BCC2E2900DF656C /* KeyWorks.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = KeyWorks.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		F87B7B802BCD87B600DF656C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F87B7B822BCED8A600DF656C /* MyBooks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBooks.entitlements; sourceTree = "<group>"; };
+		F87B7B832BCEDD6A00DF656C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F8CBBA822B94BCCA003205D7 /* MyBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CBBA852B94BCCA003205D7 /* MyBooksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBooksApp.swift; sourceTree = "<group>"; };
 		F8CBBA872B94BCCA003205D7 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 		F8CBBA792B94BCCA003205D7 = {
 			isa = PBXGroup;
 			children = (
+				F87B7B802BCD87B600DF656C /* Launch Screen.storyboard */,
 				F87B7B7D2BCC2B4B00DF656C /* Localizable.xcstrings */,
 				F8CBBA842B94BCCA003205D7 /* MyBooks */,
 				F8CBBA832B94BCCA003205D7 /* Products */,
@@ -143,6 +148,8 @@
 		F8CBBA842B94BCCA003205D7 /* MyBooks */ = {
 			isa = PBXGroup;
 			children = (
+				F87B7B832BCEDD6A00DF656C /* Info.plist */,
+				F87B7B822BCED8A600DF656C /* MyBooks.entitlements */,
 				F8046C132BB5CCAE00A15CF0 /* Genres */,
 				F8CBBA852B94BCCA003205D7 /* MyBooksApp.swift */,
 				F8046C112BB5CC1200A15CF0 /* Quotes */,
@@ -229,6 +236,7 @@
 			files = (
 				F8CBBA8D2B94BCCB003205D7 /* Preview Assets.xcassets in Resources */,
 				F8CBBA8A2B94BCCB003205D7 /* Assets.xcassets in Resources */,
+				F87B7B812BCD87B600DF656C /* Launch Screen.storyboard in Resources */,
 				F87B7B7E2BCC2B4B00DF656C /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,15 +396,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyBooks/MyBooks.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyBooks/Preview Content\"";
 				DEVELOPMENT_TEAM = G4WRMD578D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyBooks/Info.plist;
+				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -417,15 +429,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyBooks/MyBooks.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyBooks/Preview Content\"";
 				DEVELOPMENT_TEAM = G4WRMD578D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyBooks/Info.plist;
+				INFOPLIST_KEY_NSNetworkVolumesUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

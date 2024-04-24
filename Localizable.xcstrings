@@ -38,6 +38,16 @@
         }
       }
     },
+    "author" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "作者"
+          }
+        }
+      }
+    },
     "Author" : {
       "localizations" : {
         "zh-Hans" : {
@@ -77,6 +87,9 @@
           }
         }
       }
+    },
+    "Completed" : {
+
     },
     "Create" : {
       "localizations" : {
@@ -168,6 +181,16 @@
         }
       }
     },
+    "In Progress" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "处理中"
+          }
+        }
+      }
+    },
     "My Books" : {
       "localizations" : {
         "zh-Hans" : {
@@ -204,6 +227,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "新建类型"
+          }
+        }
+      }
+    },
+    "On Shelf" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已上架"
           }
         }
       }
@@ -288,6 +321,16 @@
         }
       }
     },
+    "status" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "状态"
+          }
+        }
+      }
+    },
     "Status" : {
       "localizations" : {
         "zh-Hans" : {
@@ -308,12 +351,23 @@
         }
       }
     },
+    "title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "书名"
+          }
+        }
+      }
+    },
     "Title" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "标题"
+            "value" : "书名"
           }
         }
       }

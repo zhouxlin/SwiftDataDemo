@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditBookView: View {
     @Environment(\.dismiss) private var dismiss
     let book: Book
-    @State private var status = Status.onShelf
+    @State private var status: Status
     @State private var rating: Int?
     @State private var title = ""
     @State private var author = ""
@@ -18,9 +19,16 @@ struct EditBookView: View {
     @State private var dateAdded = Date.distantPast
     @State private var dateStarted = Date.distantPast
     @State private var dateCompleted = Date.distantPast
-    @State private var firstView = true
+    @State private var selectedBookCover: PhotosPickerItem?
+    @State private var selectedBookCoverData: Data?
+
     @State private var recomemdedBy = ""
     @State private var showGenres = false
+    
+    init(book: Book) {
+        self.book = book
+        _status = State(initialValue: Status(rawValue: book.status)!)
+    }
     
     var body: some View {
         HStack {
@@ -35,7 +43,13 @@ struct EditBookView: View {
         VStack(alignment: .leading) {
             GroupBox {
                 LabeledContent {
-                    DatePicker("", selection: $dateAdded, displayedComponents: .date)
+                    switch status {
+                    case .onShelf:
+                        DatePicker("", selection: $dateAdded, displayedComponents: .date)
+                    case .inProgress, .completed:
+                        DatePicker("", selection: $dateAdded, in: ...dateStarted, displayedComponents: .date)
+                    }
+                   
                 } label: {
                     Text("Date Added")
                 }
@@ -56,39 +70,64 @@ struct EditBookView: View {
             }
             .foregroundStyle(.secondary)
             .onChange(of: status) { oldValue,  newValue in
-                if firstView {
-                    if newValue == .onShelf {
-                        dateStarted = Date.distantPast
-                        dateCompleted = Date.distantPast
-                    } else if newValue == .inProgress && oldValue == .completed {
-                        dateCompleted = Date.distantPast
-                    } else if newValue == .inProgress && oldValue == .onShelf {
-                        dateStarted = Date.now
-                    } else if newValue == .completed && oldValue == .onShelf {
-                        dateCompleted = Date.now
-                        dateStarted = dateAdded
-                    } else {
-                        dateCompleted = Date.now
-                    }
-                    firstView = false
+                if newValue == .onShelf {
+                    dateStarted = Date.distantPast
+                    dateCompleted = Date.distantPast
+                } else if newValue == .inProgress && oldValue == .completed {
+                    dateCompleted = Date.distantPast
+                } else if newValue == .inProgress && oldValue == .onShelf {
+                    dateStarted = Date.now
+                } else if newValue == .completed && oldValue == .onShelf {
+                    dateCompleted = Date.now
+                    dateStarted = dateAdded
+                } else {
+                    dateCompleted = Date.now
                 }
-               
             }
             Divider()
-            LabeledContent {
-                RatingsView(maxRating: 5, currentRating: $rating, width: 30)
-            } label: {
-                Text("Rating")
-            }
-            LabeledContent {
-                TextField("", text: $title)
-            } label: {
-                Text("Title").foregroundStyle(.secondary)
-            }
-            LabeledContent {
-                TextField("", text: $author)
-            } label: {
-                Text("Author").foregroundStyle(.secondary)
+            HStack {
+                PhotosPicker(selection: $selectedBookCover, matching: .images, photoLibrary: .shared()) {
+                    Group {
+                        if let selectedBookCoverData, let uiImage = UIImage(data: selectedBookCoverData) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFit()
+                        } else {
+                            Image(systemName: "photo")
+                                .resizable()
+                                .scaledToFit()
+                                .tint(.primary)
+                        }
+                    }
+                    .frame(width:75, height: 100)
+                    .overlay(alignment: .bottomTrailing) {
+                        Button {
+                            selectedBookCover = nil
+                            selectedBookCoverData = nil
+                        } label: {
+                            Image(systemName: "x.circle.fill")
+                                .foregroundStyle(.red)
+                        }
+                    }
+                }
+                VStack {
+                    LabeledContent {
+                        RatingsView(maxRating: 5, currentRating: $rating, width: 30)
+                    } label: {
+                        Text("Rating")
+                    }
+                    
+                    LabeledContent {
+                        TextField("", text: $title)
+                    } label: {
+                        Text("Title").foregroundStyle(.secondary)
+                    }
+                    LabeledContent {
+                        TextField("", text: $author)
+                    } label: {
+                        Text("Author").foregroundStyle(.secondary)
+                    }
+                }
             }
             LabeledContent {
                 TextField("", text: $recomemdedBy)
@@ -123,7 +162,7 @@ struct EditBookView: View {
             }
             .buttonStyle(.bordered)
             .frame(maxWidth: .infinity, alignment: .trailing)
-            .padding(.horizontal)
+            .padding()
             
         }
         .padding()
@@ -142,12 +181,12 @@ struct EditBookView: View {
                     book.dateCompleted = dateCompleted
                     book.dateStarted = dateStarted
                     book.recommenedBy = recomemdedBy
+                    book.bookCover = selectedBookCoverData
                     dismiss()
                 }.buttonStyle(.borderedProminent)
             }
         }
         .onAppear {
-            status = Status(rawValue: book.status)!
             rating = book.rating
             title = book.title
             author = book.author
@@ -156,6 +195,12 @@ struct EditBookView: View {
             dateCompleted = book.dateCompleted
             dateStarted = book.dateStarted
             recomemdedBy = book.recommenedBy
+            selectedBookCoverData = book.bookCover
+        }
+        .task(id: selectedBookCover) {
+            if let data = try? await selectedBookCover?.loadTransferable(type: Data.self) {
+                selectedBookCoverData = data
+            }
         }
     }
     
@@ -169,6 +214,7 @@ struct EditBookView: View {
         || dateCompleted != book.dateCompleted
         || dateStarted != book.dateStarted
         || recomemdedBy != book.recommenedBy
+        || selectedBookCoverData != book.bookCover
     }
 }
 

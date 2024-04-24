@@ -39,7 +39,7 @@ struct GenresView: View {
                                         Button {
                                             addRemove(genre)
                                         } label: {
-                                            Image(systemName: "cicle")
+                                            Image(systemName: "circle")
                                         }
                                         .foregroundStyle(genre.hexColor)
                                     } else {

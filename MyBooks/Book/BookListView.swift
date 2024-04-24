@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 
-enum SortOrder: String, Identifiable, CaseIterable {
+enum SortOrder: LocalizedStringResource, Identifiable, CaseIterable {
     case status, title, author
     
     var id: Self {
@@ -54,7 +54,7 @@ struct BookListView: View {
     let preview = Preview(Book.self)
     preview.addExamples(Book.sampleBooks)
     preview.addExamples(Genre.sampleGenres)
-    return BookListView().modelContainer(preview.container)
+    return BookListView().modelContainer(preview.container).environment(\.locale, Locale(identifier: "en"))
 }
 #Preview("Chiness") {
     let preview = Preview(Book.self)
